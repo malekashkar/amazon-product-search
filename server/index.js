@@ -12,6 +12,8 @@ const {
 } = require("./util");
 require("dotenv").config();
 
+const PORT = process.env.PORT || 3000;
+
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
@@ -73,4 +75,6 @@ app.get("/search", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
