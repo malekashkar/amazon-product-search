@@ -67,7 +67,7 @@ form.addEventListener("submit", async (event) => {
       setTimeout(() => {
         form.reset();
         newForm.style.display = '';
-      }, 15 * 1000);
+      }, 30 * 1000);
     } else {
       errorElement.textContent = json.message;
       errorElement.style.display = "";
