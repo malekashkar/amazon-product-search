@@ -1,0 +1,34 @@
+.title {
+    text-align: center;
+    padding: 25px;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#background {
+    background-image: linear-gradient(to right, #7F7FD5, #86A8E7);
+}
+
+.loading {
+  text-align: center;
+  opacity: 0.3;
+}
+
+.loading-image {
+    width: 3%;
+    margin: 100px;
+}
+
+body {
+    display: flex; flex-direction:column; justify-content:center;
+    min-height: 90vh;
+  }
+
+#new-form-button {
+    width: 25%;
+    margin: 25px;
+    margin-left: 37.5%;
+}
