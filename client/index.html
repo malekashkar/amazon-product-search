@@ -1,101 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Amazon Product Seach</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body id="background">
-    <div id= "error-message" class="alert alert-danger container" role="alert"></div>
-    <header>
-      <h1 class="title">Amazon Product Search</h1>
-    </header>
-    <main>
-      <div id="new-form-button">
-        <button id="new-form" type="button" class="btn btn-secondary container">
-          Create New Search
-        </button>
-      </div>
-      <table id="info-table" class="table table-striped table-dark container">
-        <tbody>
-          <tr>
-            <th scope="row">Title</th>
-            <td id="product-title"></td>
-          </tr>
-          <tr>
-            <th scope="row">URL</th>
-            <td>
-              <a href="#" id="product-url"></a>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">Stock</th>
-            <td id="product-stock"></td>
-          </tr>
-          <tr>
-            <th scope="row">Price</th>
-            <td id="product-price"></td>
-          </tr>
-          <tr>
-            <th scope="row">Original</th>
-            <td id="product-listPrice"></td>
-          </tr>
-          <tr>
-            <th scope="row">Discount</th>
-            <td id="product-discount"></td>
-          </tr>
-        </tbody>
-      </table>
-      <form>
-        <label for="name">Product Name</label>
-        <br />
-        <input
-          class="alert btn-outline-secondary container"
-          type="text"
-          id="name"
-          name="name"
-          value="Item Name"
-        />
-        <br />
-        <label for="minPrice">Minimum Price</label>
-        <br />
-        <input
-          class="alert btn-outline-secondary container"
-          type="number"
-          id="minPrice"
-          name="minPrice"
-          value="1"
-        />
-        <br />
-        <label for="maxPrice">Maximum Price</label>
-        <br />
-        <input
-          class="alert btn-outline-secondary container"
-          type="number"
-          id="maxPrice"
-          name="maxPrice"
-          value="100"
-        />
-        <br />
-        <input
-          class="btn btn-secondary container"
-          type="submit"
-          value="Search Products"
-        />
-      </form>
-      <div class="loading">
-        <img class="loading-image" src="img/loading.gif" alt="" />
-      </div>
-    </main>
-    <script type="text/javascript" src="js/client.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Amazon Product Seach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body id="background">
+  <div id="error-message" class="alert alert-danger container" role="alert"></div>
+  <header>
+    <h1 class="title">Amazon Product Search</h1>
+  </header>
+  <main>
+    <div id="new-form-button">
+      <button id="new-form" type="button" class="btn btn-secondary container">
+        Create New Search
+      </button>
+    </div>
+    <table id="info-table" class="table table-striped table-dark container">
+      <tbody>
+        <tr>
+          <th scope="row">Title</th>
+          <td id="product-title"></td>
+        </tr>
+        <tr>
+          <th scope="row">URL</th>
+          <td>
+            <a href="#" id="product-url"></a>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Stock</th>
+          <td id="product-stock"></td>
+        </tr>
+        <tr>
+          <th scope="row">Price</th>
+          <td id="product-price"></td>
+        </tr>
+        <tr>
+          <th scope="row">Original</th>
+          <td id="product-listPrice"></td>
+        </tr>
+        <tr>
+          <th scope="row">Discount</th>
+          <td id="product-discount"></td>
+        </tr>
+        <tr>
+          <th scope="row">Star Ratings</th>
+          <td id="product-rating"></td>
+        </tr>
+        <tr>
+          <th scope="row">Total Ratings</th>
+          <td id="product-total-rating"></td>
+        </tr>
+        <tr>
+          <th scope="row">Amazon Choice</th>
+          <td id="amazon-choice"></td>
+        </tr>
+      </tbody>
+    </table>
+    <form>
+      <label for="name">Product Name</label>
+      <input class="alert container input" type="text" id="name" name="name" placeholder="Product Name" />
+      <label for="minPrice">Minimum Price</label>
+      <input class="alert container" type="number" id="minPrice" name="minPrice" value="1" min="1" />
+      <label for="maxPrice">Maximum Price</label>
+      <input inputmode="numeric" class="alert container" type="number" id="maxPrice" name="maxPrice" value="100"
+        min="10" />
+      <input inputmode="numeric" class="btn btn-secondary container" type="submit" value="Search Products" />
+    </form>
+    <div class="loading">
+      <img class="loading-image" src="img/loading.gif" alt="" />
+    </div>
+  </main>
+  <script type="text/javascript" src="js/client.js"></script>
+</body>
+
 </html>
