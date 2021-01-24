@@ -1,15 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
 .title {
-    text-align: center;
-    padding: 25px;
+  text-align: center;
+  padding: 25px;
 }
 
 form {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
+  min-width: 300px;
 }
 
 #background {
-    background-image: linear-gradient(to right, #7F7FD5, #86A8E7);
+  background-image: linear-gradient(to right, #7f7fd5, #86a8e7);
 }
 
 .loading {
@@ -18,17 +31,24 @@ form {
 }
 
 .loading-image {
-    width: 3%;
-    margin: 100px;
+  width: 3%;
+  margin: 100px;
 }
 
 body {
-    display: flex; flex-direction:column; justify-content:center;
-    min-height: 90vh;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90vh;
+}
 
 #new-form-button {
-    width: 25%;
-    margin: 25px;
-    margin-left: 37.5%;
+  width: 25%;
+  margin: 25px;
+  margin-left: 37.5%;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
 }

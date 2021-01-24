@@ -58,8 +58,31 @@ async function getProductInfo($) {
   const price =
     Number($(`#priceblock_ourprice`).text().replace("$", "")) ||
     Number($(`#priceblock_saleprice`).text().replace("$", ""));
-  const title = $(`#productTitle`) ? $(`#productTitle`).text().trim("") : `No title provided.`;
-  const stock = $(`#availability > span`) ? $(`#availability > span`).text().trim("") : `No stock provided.`;
+  const title = $(`#productTitle`)
+    ? $(`#productTitle`).text().trim("")
+    : `No title provided.`;
+
+  const ratings = $(
+    `#averageCustomerReviews > span.a-declarative > #acrPopover > span.a-declarative > a.a-popover-trigger > i.a-icon > span.a-icon-alt`
+  )
+    ? $(
+        `#averageCustomerReviews > span.a-declarative > #acrPopover > span.a-declarative > a.a-popover-trigger > i.a-icon > span.a-icon-alt`
+      )
+        .html()
+        .trim("")
+    : "No rating provided";
+
+  const totalRatings = $("#acrCustomerReviewText")
+    ? $("#acrCustomerReviewText").html().trim()
+    : "No total ratings provided.";
+
+  const isAmazonChoice = $("span").hasClass("ac-badge-text-primary")
+    ? "Yes"
+    : "No";
+
+  const stock = $(`#availability > span`)
+    ? $(`#availability > span`).text().trim("")
+    : `No stock provided.`;
   const listPrice = $(
     `#price > table > tbody > tr:nth-child(1) > td.a-span12.a-color-secondary.a-size-base > span.priceBlockStrikePriceString.a-text-strike`
   ).text()
@@ -73,7 +96,17 @@ async function getProductInfo($) {
     : price;
   const discount = listPrice ? parseInt(listPrice - price) : 0;
 
-  return { asin, price, title, stock, listPrice, discount };
+  return {
+    asin,
+    price,
+    ratings,
+    totalRatings,
+    title,
+    stock,
+    listPrice,
+    discount,
+    isAmazonChoice,
+  };
 }
 
 module.exports = {
